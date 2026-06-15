@@ -9,6 +9,7 @@ import detection
 
 PRODUCT = "SENTRA"
 TAGLINE = "Procurement Anomaly Intelligence"
+st.markdown(f"<div class='hero'><div class='brand'>{PRODUCT}</div><div class='tag'>{TAGLINE}</div></div>", unsafe_allow_html=True)
 DATA_PATH = Path("data/beschaffungsdaten.csv")
 
 st.set_page_config(page_title=f"{PRODUCT} – {TAGLINE}", layout="wide")
@@ -43,7 +44,7 @@ def apply_css() -> None:
         """
         <style>
         #MainMenu, footer, [data-testid="stToolbar"] {display:none;}
-        .block-container {max-width: 1240px; padding-top: 1.3rem;}
+        .block-container {max-width: 1240px; padding-top: 3rem;}
         h1, h2, h3 {letter-spacing: -0.02em;}
         .hero {border-bottom: 1px solid #E6E8EB; margin-bottom: 1.2rem; padding-bottom: 1rem;}
         .brand {font-size: 2rem; font-weight: 700; letter-spacing: .18em; color: #0F172A;}
@@ -91,7 +92,13 @@ def existing(df: pd.DataFrame, cols: list[str]) -> list[str]:
 
 
 apply_css()
-st.markdown(f"<div class='hero'><div class='brand'>{PRODUCT}</div><div class='tag'>{TAGLINE}</div></div>", unsafe_allow_html=True)
+st.markdown(
+    f"<div class='hero' style='display:flex; align-items:center; gap:.8rem;'>"
+    f"<div style='line-height:0;'>{LOGO_SVG}</div>"
+    f"<div><div class='brand'>{PRODUCT}</div><div class='tag'>{TAGLINE}</div></div>"
+    f"</div>",
+    unsafe_allow_html=True,
+)
 
 with st.sidebar:
     st.header("Datenquelle")
