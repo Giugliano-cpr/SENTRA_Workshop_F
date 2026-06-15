@@ -9,6 +9,7 @@ import detection
 
 PRODUCT = "SENTRA"
 TAGLINE = "Procurement Anomaly Intelligence"
+LOGO_SVG = """<svg width="34" height="34" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="2.3" fill="#CBD5E1"/><circle cx="18" cy="8" r="2.3" fill="#94A3B8"/><circle cx="8" cy="18" r="2.3" fill="#94A3B8"/><circle cx="18" cy="18" r="2.3" fill="#CBD5E1"/><circle cx="8" cy="28" r="2.3" fill="#CBD5E1"/><circle cx="18" cy="28" r="2.3" fill="#94A3B8"/><circle cx="28" cy="28" r="2.3" fill="#CBD5E1"/><circle cx="28" cy="18" r="5" fill="none" stroke="#B42318" stroke-width="1.5"/><circle cx="28" cy="18" r="2.6" fill="#B42318"/></svg>"""
 DATA_PATH = Path("data/beschaffungsdaten.csv")
 
 st.set_page_config(page_title=f"{PRODUCT} – {TAGLINE}", layout="wide")
@@ -91,13 +92,7 @@ def existing(df: pd.DataFrame, cols: list[str]) -> list[str]:
 
 
 apply_css()
-st.markdown(
-    f"<div class='hero' style='display:flex; align-items:center; gap:.8rem;'>"
-    f"<div style='line-height:0;'>{LOGO_SVG}</div>"
-    f"<div><div class='brand'>{PRODUCT}</div><div class='tag'>{TAGLINE}</div></div>"
-    f"</div>",
-    unsafe_allow_html=True,
-)
+st.markdown(st.markdown(f"<div class='hero'><div class='brand'>{PRODUCT}</div><div class='tag'>{TAGLINE}</div></div>", unsafe_allow_html=True)
 
 with st.sidebar:
     st.header("Datenquelle")
