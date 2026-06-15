@@ -9,7 +9,6 @@ import detection
 
 PRODUCT = "SENTRA"
 TAGLINE = "Procurement Anomaly Intelligence"
-st.markdown(f"<div class='hero'><div class='brand'>{PRODUCT}</div><div class='tag'>{TAGLINE}</div></div>", unsafe_allow_html=True)
 DATA_PATH = Path("data/beschaffungsdaten.csv")
 
 st.set_page_config(page_title=f"{PRODUCT} – {TAGLINE}", layout="wide")
